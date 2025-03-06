@@ -1,0 +1,189 @@
+
+.containerLogin{
+    overflow-y:visible;
+}
+.containerLogin a h1{
+    position: relative;
+    margin:  0 0 0 2.5vw;
+    z-index: 1;
+    font-size: 2.5rem;
+    color: #e50914;
+    
+}
+.containerLogin img{
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 121.5%;
+    z-index: 0;
+    object-fit: cover;
+}
+
+.containerLogin .imgShadowLogin{
+    position: absolute;
+    width: 100%;height: 121.5%;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.9) 100%);
+}
+.form-login{
+    position: absolute;
+    width: 30rem;
+    height: 90vh;
+    z-index: 1;
+    background: rgba(0,0,0,.85);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    padding: 60px;
+    margin: 5% 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    color: #fff;
+}
+.form-login h1{margin-bottom: 1.5vh;}
+
+.inputsLogin{
+    position: relative;
+    top: -12.5%;
+    width: 95%;
+    height:50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5vh;
+}
+.inputsLogin input{
+    height: 100%;
+    background: rgba(0,0,0,.85);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 2.5%;
+    color: #fff;
+    transition: .1s;
+    border-bottom: 3px solid #2b2b2b;
+}
+.inputsLogin input[type='submit']{
+    font-size: 110%;
+    background: #e50914;
+    cursor: pointer;
+    border: none;
+}
+.inputsLogin input[type='submit']:hover{
+    filter: brightness(.85);
+}
+
+.inputsLogin input[type='email']:focus,input[type='password']:focus{
+    border: 1px solid white;
+}
+.between-Div{
+    width: 92%;
+    position: relative;
+    top: -7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2vw;
+}
+.between-Div a,label{
+    color: #7b7b7b;
+    font-size: 95%;
+}
+.between-Div input[type='checkbox'] + label::before{
+    content: '';
+    display: inline-block;
+    text-align: center;
+    width: 17px;
+    height: 17px;
+    border: 1px solid white;
+    transition: .5s ease-in;
+    cursor: pointer;
+    border-radius: 2px;
+}
+.between-Div input[type='checkbox']{
+    opacity: 0;
+}
+.between-Div input[type='checkbox']:checked + label::before{
+    font-size: 80%;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    color: black;
+    font-weight:bolder;
+    content: '✔';
+}
+.end-Div{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5vh;
+    font-size: 90%;
+    color: #7b7b7b;
+    text-wrap: pretty;
+}
+.end-Div a{color: #fff;text-decoration: none;}
+.end-Div a:hover{text-decoration: underline;}
+
+.footerLogin{
+    transform: translate(0,100vh);
+    position: relative;
+    width: 100vw;
+    height: 15vh;
+    padding: 2.5%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.9);
+    color: rgba(255,255,255,0.7);
+    text-align:center;
+    flex-direction: column;
+}
+
+dialog{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 85vmin;
+    height: 35vh;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 2.5%;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 0 25px darkgrey;
+}
+dialog label{
+    border-radius: 3px;
+    color: #2b2b2b;
+    width: 150px;
+    margin-top: 2.5%;
+    background:#fff;
+    cursor: pointer;
+}
+dialog input{visibility: hidden;}
+dialog:has(input:checked){
+    display: none;
+}
+dialog h2{font-family: Arial, Helvetica, sans-serif; font-size: 1.7vmax;}
+dialog.ok{
+    background-color:blue;
+}
+dialog.notOk{
+    background-color:#e53935;
+}
+@media screen and (max-width:800px) {
+    .form-login{
+        width: 47vmax;
+        height: 80vh;
+        padding: 21.62px;
+        top: 55%;
+    }
+    .between-Div{
+        font-size: 1.9vmax;
+    }
+    .end-Div p{text-align: center;}
+}

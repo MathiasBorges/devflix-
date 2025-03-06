@@ -1,0 +1,525 @@
+
+.linkRoutes{
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+}
+/*Começo header*/
+.cookieHeader{
+    width: 100%;
+    height: auto;
+    background-color: #f2f2f2;
+    padding: 1.5%;
+    display: flex;
+    box-shadow: 0 0 25px black;
+    position: fixed;
+    z-index: 100;
+}
+
+.content{
+    width: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+.content p{
+    line-height: 1.5em;
+    font-size: .8rem;
+}
+.aceitaCookie-btn{
+    padding: 1%;
+    font-weight: 600;
+    background-color:#e50914 ;
+    cursor: pointer;
+}
+.aceitaCookie-btn:hover{opacity: .65;}
+.closeBox{
+    width: 2%;
+}
+.closeBox button{cursor: pointer; scale: 1.1;color: black;margin-left: 50%;}
+.closeBox button:hover{opacity: .65;}
+
+@keyframes byeCookieHeader {
+    to{
+        opacity: 0;
+        display: none;
+    }
+}
+@media screen and (max-width:1024px){
+    .content{
+        flex-direction: column;
+        width: 94%;
+    }
+}
+/*Fim header*/
+
+/*Começo 1ª sessão*/
+.container{
+    overflow: hidden;
+    width: 100vw;
+    height: 80vh;
+}
+.container img{
+    height: 80%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    
+}
+.shadowImg{
+    position: absolute;
+    width: 100%;height: 80%;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.headerDevFlix{
+    position: relative;
+    width: 99%;
+    height: auto;
+    padding: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.headerDevFlix h1{
+    cursor: default;
+    color: #e50914;
+    font-size: 1.75rem;
+}
+.options{
+    display: flex;
+    margin-right: 1%;
+    gap: 1vw;
+}
+.selects{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border: .5px solid white;
+    border-radius: 3px;
+}
+.selects i{
+    scale: .55;
+}
+.selectLanguage{
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    outline: none;
+}
+.selectLanguage option{color: black;}
+.btnEntrar{
+    background-color: #e50914;
+    border-radius: 3px;
+    font-weight: bold;
+    padding: 5%;
+}
+.btnEntrar, .btnEntrar .linkRoutes{
+    transition: .5s;
+}
+
+.btnEntrar:hover, .btnEntrar .linkRoutes:hover{
+    filter: brightness(.89);
+}
+
+
+.mainBox{
+    position: relative;
+    width: 100vw;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    gap: 2.5vh;
+    padding: 2.5%;
+    margin: 2.5%;
+    text-align: center;
+    text-wrap:pretty;
+}
+.mainTexts h1{
+    font-size: 1.75rem;
+    font-family: var(--font-netflix);
+    font-weight: 900;
+    margin-top: 1%;
+}
+.mainTexts p{
+    font-family:var(--font-netflix);
+    font-size: 1rem;
+}
+.mainTexts{
+    margin-bottom: 2vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2vh;
+    text-shadow:  0 2px 2px black;
+}
+.form-Home{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    width: 49vmax;
+}
+.form-Home input[type=email]{
+    background-color: black;
+    width:35rem ;
+    height: 7.5vh;
+    padding: 1%;
+    filter:opacity(.8);
+    border: 1px solid #3b3b3b;
+    border-radius: 3px;
+    color: #fff;
+    transition: .5s;
+    
+}
+.form-Home input[type=email]:focus{
+    filter: opacity(1);
+}
+.form-Home input[type=submit]{
+    width: 200px;
+    height: 3.4rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: 1s;
+    font-family: var(--font-netflix);
+}
+@keyframes carregaBotao{
+    25%{filter: opacity(.25);}
+    50%{filter: opacity(.75)}
+    75%{filter: opacity(.5)}
+    100%{filter: opacity(1)}
+}
+.form-Home input[type=submit]:hover{
+    filter: brightness(.8);
+}
+@media screen and (max-width:475px) {
+    .form-Home{
+        flex-wrap: wrap;
+    }
+}
+@media screen and (max-width:395px) {
+    .form-Home input[type=email]{
+        width: 90vw;
+    }
+}
+/*Fim 1ª sessão*/
+
+/*Começo Sessão de venda Netflix*/
+.containerVenda{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%) translateY(-9%);
+    padding: 1%;
+    padding-left:5% ;
+    width: 70vw;
+    height: auto;
+    background: radial-gradient(
+        51.39% 511.66% at 47.68% -217.91%,
+        #ff9900 0%,
+        #e50914 17.27%,
+        #0e1b4f 79.44%,
+        #000413 100%
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+
+}
+.pipoca{
+    margin-right: 1vmax;
+}
+.oferta{
+    width: 60%;
+    font-size: 70%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1vh;
+}
+.oferta p,a{
+    font-size: 1rem;
+}
+.oferta h1{font-size: 1.45rem;}
+
+@media screen and (max-width:575px){
+    .containerVenda{
+        flex-direction: column;
+        padding: 2%;
+        width: 90vw;
+    }
+    .oferta{
+        width: 100%;
+        align-items: center;
+    }
+    .oferta h1{font-size: .77rem;}
+    .oferta p,a{font-size: .77rem;}
+}
+/*Fim Sessão de venda Netflix*/
+
+/*Começo padrão das sessões*/
+.containerSessao{
+    color: #fff;
+    border-bottom: 10px solid #232323;
+    width: 100vw;
+    height: 100vh;
+    padding: 2.5%;
+}
+.sessao-flex{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+ }
+ .textos-sessao{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    gap:1.5vh;
+}
+.textos-sessao h1{font-size: 3vmax;}
+.textos-sessao p{font-size: 1.7vmax;}
+/*Fim padrão das sessões*/
+
+/*Começo AproveiteSessao*/
+.videoNaTv{
+    margin: 2.5%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.videoNaTv video{
+    width: 45vmax;
+    position: absolute;
+    z-index: 0;
+}
+.videoNaTv img{
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/*Fim AproveiteSessao*/
+
+/*Começo Sessão Assista */
+.assistaDispositivos{
+    margin: 2.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.assistaDispositivos img{
+    width: 77%;
+    position: relative;
+    z-index: 1;
+}
+.assistaDispositivos video{
+    width: 20vw;
+    transform: translateY(-35%);
+    position: absolute;
+    z-index: 0;
+}
+/*Fim Sessão Assista */
+
+/*Começo Sessão Crianças*/
+.paraCriancas{
+    width: 100vw;
+    height: auto;
+    margin: 2.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.paraCriancas img{
+    padding: 1.5%;
+    margin-top: 2.5%;
+    width: auto;
+    height: 100%;
+}
+/*Fim Sessão Crianças*/
+
+/*Começo Sessão baixar p/ offline*/
+
+.celularStranger{
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+.celularStranger img{
+    width: 100%;
+    transform: translateY(-8%);
+}
+
+.downloadBox{
+    position: absolute;
+    transform: translate(55%,85%);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 1;
+    background: black;
+    padding: 1%;
+    margin: 2%;
+    width: 40vw;
+    height: 15%;
+    border: 1px solid white;
+    border-radius: 10px;
+    gap: 1vw;
+    text-align: start;
+}
+.textosDeDownload p{color: #0071eb;}
+.img-stranger img{
+    height: 4rem;
+    border-radius: 3px;
+    box-shadow: 0 0 10px white;
+}
+.gifDownload{
+    background: url('https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif') center center no-repeat;
+    width: 3rem;
+    height: 3rem;
+    background-size: 100%;
+}
+/*Fim Sessão baixar p/ offline*/
+
+/*Começo Sessão de perguntas*/
+.container-perguntas{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2.5%;
+    position: relative;
+}
+.input-perguntas {
+    visibility: hidden;
+}
+hr{border-color: black; border-style: solid;}
+
+.pergunta{
+    padding: 0% 2.5%;
+    width: 100%;
+}
+.pergunta label{
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 100%;
+    padding: 2.5vmax;
+    background-color: #232323;
+    transition: 1s;
+}
+.pergunta label:hover{
+    background-color:#6d6d6d ;
+    color: white;
+}
+
+.pergunta label::after{
+    scale: 2;
+    content: '+';
+    transition: .25s ease-in-out;
+}
+.input-perguntas:checked ~ label::after{
+    rotate: 135deg;
+}
+
+.conteudo-pergunta{
+    width: 100%;height: 0;visibility: collapse;
+    background-color:#2d2d2d ;
+    padding: 2.5%;
+    display: none;
+    align-items: flex-start;
+    flex-direction: column;
+    text-align: start;
+    gap: 25px;
+    opacity: 0;
+    text-wrap: pretty;
+}
+.pergunta input:checked ~ div{
+    display: flex;
+    animation: showPergunta .5s ease-in-out forwards;
+    p{
+        opacity: 0;
+        animation: showP .5s linear forwards .45s;
+    }
+}
+@keyframes showP{
+    to{
+        opacity: 1;
+    }
+}
+@keyframes showPergunta {
+    to{
+        height: 70%;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+/*Fim Sessão de perguntas*/
+
+/*Começo rodapé*/
+.footerHomePage{
+    width: 100vw;
+    height: auto;
+    padding: 3.5vw;
+    color: #5e5d5d;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2vh;
+}
+.footerHomePage a{color: #5e5d5d;}
+/*Fim rodapé*/
+
+@media screen and (max-width:800px) {
+    .containerSessao{height: 70vh;}
+
+    .sessao-flex{
+        margin-top: 2.5%;
+        flex-direction: column;
+    }
+
+    .textos-sessao{text-align: center;}
+    .textos-sessao p{font-size: 2.25vmax;}
+    
+    .assistaDispositivos video{
+        width: 40vw;
+    }
+    
+    .videoNaTv video{
+        width: 70vw;
+    }
+    
+    .downloadBox{
+        transform: translate(0%,140%);
+        width: 48vmax;
+    }
+
+   
+}
+@media screen and (max-width:400px) {
+    .footerHomePage{
+        flex-direction: row;
+    }
+}

@@ -1,0 +1,7 @@
+POST  http://192.168.0.138:3000/login
+Content-Type: application/json
+
+{
+    "email" : "adminMaster@gmail.com",
+    "senha":"666Senha"
+}

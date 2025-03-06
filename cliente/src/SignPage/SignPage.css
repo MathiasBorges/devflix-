@@ -1,0 +1,188 @@
+.bodySign{
+    background-color: white;
+}
+.bodySign h1{
+    font-size: 2.75rem;
+}
+.bodySign header{
+    height: 12vh;
+    border-bottom: 1px solid #ededed;
+}
+.bodySign .btnEntrar{
+    padding: 1.25%;
+    font-weight: 500;
+    background: none;
+    color: black;
+    text-decoration: none;
+}
+.bodySign .btnEntrar:hover{
+    text-decoration: underline;
+}
+
+.mainSign{
+    display: none;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2.5%;
+    gap: 1.7rem;
+    animation: showMainSign 1s ease-in forwards;
+}
+@keyframes showMainSign {
+    from{
+        opacity: 0;
+        transform: translateX(-25%);
+    }
+}
+
+@keyframes noShowMainSign {
+    to{
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+.mainSign img{
+    width: 270px;
+    transform: translateY(-12.5%);
+}
+.mainSign > *{
+    text-align: center;
+    color: #3b3b3b;
+    max-width: 700px;
+}
+.mainSign h1{
+    font-size: 2rem;
+    padding: 0 9rem;
+}
+.mainSign p{
+    text-wrap: pretty;
+    padding: 0 13%;
+}
+.mainSign input{
+    outline: none;
+    height: 7.5vh;
+    width: 300px;
+    background: #e50914;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.mainForm{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: showMainForm 1s ease-in forwards;
+}
+@keyframes showMainForm {
+    from{
+        opacity: 0;
+        transform: translateX(100%);
+    }to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes noShowMainForm {
+    to{
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+.divForm{
+    width: 40vmax;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2.5vh;
+    padding: 0px 0vw 5vw 0vw;
+}
+
+.divForm >*{
+    color: #3b3b3b;
+}
+.divForm p:nth-of-type(1){
+    font-size: .9rem;
+}
+.divForm p:nth-of-type(2){
+    font-size: 1rem;
+}
+.divForm h1{
+    font-size: 2rem;
+}
+.divForm input{
+    width:100%;
+    height: 7.5vh;
+}
+.divForm input[type="submit"]{
+    background-color:#e50914;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    padding: 1.5%;
+}
+.divForm input:not(input[type="submit"]){
+    padding: 2.5%;   
+}
+
+.footerSign{
+    width: 100vw;
+    height: auto;
+    background:#f3f3f3;
+    padding: 3.5vw;
+    color: #5e5d5d;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+
+}
+
+.bodySign dialog{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 85vmin;
+    height: 35vh;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 2.5%;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 0 25px darkgrey;
+}
+.bodySign dialog label{
+    border-radius: 3px;
+    color: #2b2b2b;
+    width: 150px;
+    margin-top: 2.5%;
+    background:#fff;
+    cursor: pointer;
+}
+.bodySign dialog input{visibility: hidden;}
+.bodySign dialog:has(input:checked){
+    display: none;
+}
+.bodySign dialog h2{font-family: Arial, Helvetica, sans-serif; font-size: 1.7vmax;}
+.bodySign dialog.okForm{
+    background-color:blue;
+}
+.bodySign dialog.notOkForm{
+    background-color:#e53935;
+}

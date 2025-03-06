@@ -1,0 +1,84 @@
+/* Layout geral da página */
+.movie-page {
+    background-color: #141414;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e50914;
+  }
+  
+  .user-info span {
+    font-size: 16px;
+  }
+  
+  /* Barra de pesquisa */
+  .search-bar {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-bar input {
+    width: 60%;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Grade de filmes */
+  .movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+  }
+  
+  .movie-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .movie-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .movie-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .movie-title {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
