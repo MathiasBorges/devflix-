@@ -20,7 +20,7 @@ function Form() {
 
     try {
       const response = await axios.post(
-        "https://devflix-493y.onrender.com/sign" || "http://192.168.0.138:3000/sign",
+        "https://devflix-api-gd6r.onrender.com/sign" || "http://192.168.0.138:3000/sign",
         { nome: nomeCadastrar, email: emailCadastrar, senha: senhaCadastrar },
         { headers: { "Content-Type": "application/json" } }
       );
