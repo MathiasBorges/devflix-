@@ -26,7 +26,7 @@ function Form() {
     try {
       const response = await axios.post(
         backendUrl,
-        { email: emailVerificar, senha: senhaVerificar },
+        { nome: nomeCadastrar, email: emailCadastrar, senha: senhaCadastrar }, // Corretamente passando as variáveis
         { headers: { "Content-Type": "application/json" } }
       );
 

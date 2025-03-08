@@ -31,11 +31,11 @@ routes.post('/prelogin', (req, res) => {
 
 routes.post('/sign', (req, res) => {
     const { nome, email, senha } = req.body;
-
+    
     const usuario = usuarios.find(usuario => usuario.email === email);
 
     if (usuario) {
-        res.status(409).json({mensage:'Usuário já existe'});
+        res.status(409).json({mensagem:'Usuário já existe'});
     } else {
         const novoUsuario= {id:usuarios.length+1, nome, email, senha}
         usuarios.push(novoUsuario)
