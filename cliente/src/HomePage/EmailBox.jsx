@@ -18,7 +18,7 @@ export function EmailBox() {
 
             try {
                 const response = await axios.post(
-                    'https://devflix-493y.onrender.com/prelogin',
+                    'https://devflix-493y.onrender.com/prelogin' || "http://192.168.0.138:3000/prelogin",
                     JSON.stringify({ email }),
                     { headers: { 'Content-Type': 'application/json' } }
                 );
