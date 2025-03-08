@@ -27,18 +27,23 @@ function LoginPage() {
     } else {
       console.log(`Usuário recebido: ${emailVerificar} - ${senhaVerificar} \n`);
 
+      const backendUrl =
+        process.env.NODE_ENV === "production"
+          ? "https://devflix-api-gd6r.onrender.com/login"
+          : "http://192.168.0.138:3000/login"; // URL local para desenvolvimento
+
       try {
         const response = await axios.post(
-          "https://devflix-api-gd6r.onrender.com/login" || "http://192.168.0.138:3000/login",
+          backendUrl,
           { email: emailVerificar, senha: senhaVerificar },
           { headers: { "Content-Type": "application/json" } }
         );
-
+        
         console.log("Solicitação bem sucedida!");
         alertLoginOk(true);
 
         localStorage.clear();
-        localStorage.setItem("logado",'1')
+        localStorage.setItem("logado", "1");
         localStorage.setItem("nome", response.data.nome);
 
         const respostaArray = Object.entries(response.data);
@@ -75,7 +80,7 @@ function LoginPage() {
       });
     } else {
       // Navegar para a página de acesso após o login bem-sucedido
-      navigate("/acesso");  // Use navigate aqui, fora da função alertLoginOk
+      navigate("/acesso"); // Use navigate aqui, fora da função alertLoginOk
     }
   }
 

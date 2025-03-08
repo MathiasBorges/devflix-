@@ -7,12 +7,13 @@ const isProduction = process.env.NODE_ENV === "production";
 
 const port=3000 || process.env.PORT
 
-const corsOptions ={
-    //permitindo a porta do front-end ->
-    origin:'*', 
-    credentials:true,
-    optionSuccessStatus:200
-}
+const corsOptions = {
+    //permitindo front
+    origin: isProduction ? 'https://devflix-493y.onrender.com' : '*', // Permitir o frontend da produção e qualquer origem no desenvolvimento
+    credentials: true,
+    optionsSuccessStatus: 200
+  };
+  
 app.use(cors(corsOptions))
 
 app.use(express.json())
@@ -24,4 +25,6 @@ app.get('/',(req,res)=>{
 })
 
 
-app.listen(port, 'https://devflix-493y.onrender.com' || "192.168.0.138")
+app.listen(port, () => {
+    console.log(`Servidor rodando na porta ${port}`);
+  });

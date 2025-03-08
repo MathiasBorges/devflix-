@@ -18,10 +18,15 @@ function Form() {
   async function verificarSign(e) {
     e.preventDefault();
 
+    const backendUrl =
+      process.env.NODE_ENV === "production"
+        ? "https://devflix-api-gd6r.onrender.com/sign"
+        : "http://192.168.0.138:3000/sign"; // URL local para desenvolvimento
+
     try {
       const response = await axios.post(
-        "https://devflix-api-gd6r.onrender.com/sign" || "http://192.168.0.138:3000/sign",
-        { nome: nomeCadastrar, email: emailCadastrar, senha: senhaCadastrar },
+        backendUrl,
+        { email: emailVerificar, senha: senhaVerificar },
         { headers: { "Content-Type": "application/json" } }
       );
 
@@ -33,7 +38,7 @@ function Form() {
 
         const respostaArray = Object.entries(response.data);
         respostaArray.forEach(([chave, valor]) => {
-            localStorage.setItem(`${chave}${novoCadastro}`, valor);
+          localStorage.setItem(`${chave}${novoCadastro}`, valor);
         });
 
         return novoCadastro;
