@@ -29,7 +29,7 @@ function LoginPage() {
 
       try {
         const response = await axios.post(
-          "http://192.168.0.138:3000/login",
+          "https://devflix.onrender.com/login",
           { email: emailVerificar, senha: senhaVerificar },
           { headers: { "Content-Type": "application/json" } }
         );

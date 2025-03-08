@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 function Form() {
   function lidarClique() {
@@ -21,7 +20,7 @@ function Form() {
 
     try {
       const response = await axios.post(
-        "http://192.168.0.138:3000/sign",
+        "https://devflix.onrender.com/sign",
         { nome: nomeCadastrar, email: emailCadastrar, senha: senhaCadastrar },
         { headers: { "Content-Type": "application/json" } }
       );

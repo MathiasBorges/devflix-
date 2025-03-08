@@ -3,6 +3,8 @@ const cors=require('cors')
 const routes=require('./routes')
 const app = express()
 
+const isProduction = process.env.NODE_ENV === "production";
+
 const port=3000
 
 const corsOptions ={
