@@ -5,7 +5,7 @@ const app = express()
 
 const isProduction = process.env.NODE_ENV === "production";
 
-const port=3000
+const port=3000 || process.env.PORT
 
 const corsOptions ={
     //permitindo a porta do front-end ->
@@ -24,4 +24,4 @@ app.get('/',(req,res)=>{
 })
 
 
-app.listen(port, '192.168.0.138')
+app.listen(port, 'https://devflix-493y.onrender.com')

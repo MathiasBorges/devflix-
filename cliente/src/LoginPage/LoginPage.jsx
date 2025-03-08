@@ -29,7 +29,7 @@ function LoginPage() {
 
       try {
         const response = await axios.post(
-          "https://devflix.onrender.com/login",
+          "https://devflix-493y.onrender.com/login",
           { email: emailVerificar, senha: senhaVerificar },
           { headers: { "Content-Type": "application/json" } }
         );
