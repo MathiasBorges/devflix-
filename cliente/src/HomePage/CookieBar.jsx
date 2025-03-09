@@ -36,6 +36,7 @@ export function CookieBar(){
             <header className="cookieHeader">
                 <div className="content">
                     <p>Ao clicar em “Aceitar todos os cookies”, você concorda com o armazenamento de cookies no seu dispositivo para melhorar a navegação no site, analisar o uso do site e ajudar em nossos esforços de marketing.</p>
+                    <p>Obs.: Este site utiliza a versão gratuita do Render, possível lentidão com requisições</p>
                     <button className="aceitaCookie-btn" onClick={(e)=>aceitarCookie(e)}>Aceitar Cookies</button>
                 </div>
                 <div className="closeBox"><button className="bi bi-x-circle closeBar" onClick={closeBar}></button></div>

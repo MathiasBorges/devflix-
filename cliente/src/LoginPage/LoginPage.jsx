@@ -5,102 +5,77 @@ import axios from "axios";
 import Footer from "../HomePage/Footer";
 
 function LoginPage() {
-  const navigate = useNavigate(); // Use navigate aqui no início do componente
+  const navigate = useNavigate();
+  const [emailVerificar, setEmailVerificar] = useState(localStorage.getItem("emailEscolhido") || "");
+  const [senhaVerificar, setSenhaVerificar] = useState("");
+  const [showDialog, setShowDialog] = useState(false);
 
   useEffect(() => {
     let inputEmail = document.querySelector("#emailEntrar");
-    inputEmail.value = localStorage.getItem("emailEscolhido");
+    if (inputEmail) inputEmail.value = localStorage.getItem("emailEscolhido");
   }, []);
-
-  const [emailVerificar, setEmailVerificar] = useState(
-    localStorage.getItem("emailEscolhido")
-  );
-  useEffect(() => {
-    setEmailVerificar(localStorage.getItem("emailEscolhido"));
-  }, []);
-
-  const [senhaVerificar, setSenhaVerificar] = useState("");
 
   async function verificarLogin(e) {
     e.preventDefault();
-
-    let inputEmail = document.querySelector("#emailEntrar");
-    if (inputEmail.value === "") {
-      setEmailVerificar("");
+    
+    if (!emailVerificar) {
       document.querySelector('input[name="emailEntrar"]').focus();
-    } else {
-      console.log(`Usuário recebido: ${emailVerificar} - ${senhaVerificar} \n`);
-
-      const backendUrl =
-        process.env.NODE_ENV === "production"
-          ? "https://devflix-api-gd6r.onrender.com/login"
-          : "http://192.168.0.138:3000/login"; // URL local para desenvolvimento
-
-      try {
-        const response = await axios.post(
-          "https://devflix-api-gd6r.onrender.com/login",
-          { email: emailVerificar, senha: senhaVerificar },
-          { headers: { "Content-Type": "application/json" } }
-        );
-        
-        console.log("Solicitação bem sucedida!");
-        alertLoginOk(true);
-
-        localStorage.clear();
-        localStorage.setItem("logado", "1");
-        localStorage.setItem("nome", response.data.nome);
-
-        const respostaArray = Object.entries(response.data);
-        for (let i = 0; i < respostaArray.length - 1; i++) {
-          const [chave, valor] = respostaArray[i];
-          localStorage.setItem(chave, valor);
-        }
-      } catch (error) {
-        alertLoginOk(false);
-        setSenhaVerificar("")
-
-        if (error.response && error.response.status === 404) {
-            navigate("/login");
-          }else console.log("Erro ao fazer login:", error);
-
-      } finally {
-
-        localStorage.setItem("emailEscolhido", emailVerificar);
-      }
+      return;
     }
-    return emailVerificar, senhaVerificar;
+
+    console.log(`Usuário recebido: ${emailVerificar} - ${senhaVerificar}\n`);
+
+    try {
+      const response = await axios.post(
+        "https://devflix-api-gd6r.onrender.com/login",
+        { email: emailVerificar, senha: senhaVerificar },
+        { headers: { "Content-Type": "application/json" } }
+      );
+      
+      console.log("Solicitação bem sucedida!");
+      alertLoginOk(true);
+
+      localStorage.clear();
+      localStorage.setItem("logado", "1");
+      localStorage.setItem("nome", response.data.nome);
+
+      Object.entries(response.data).forEach(([chave, valor]) => {
+        localStorage.setItem(chave, valor);
+      });
+    } catch (error) {
+      alertLoginOk(false);
+      setSenhaVerificar("");
+      if (error.response && error.response.status === 404) {
+        navigate("/login");
+      } else {
+        console.log("Erro ao fazer login:", error);
+      }
+    } finally {
+      localStorage.setItem("emailEscolhido", emailVerificar);
+    }
   }
 
-  function alertLoginOk(isTrue) {
-    let body = document.querySelector("body");
-
-    if (isTrue !== true) {
-      body.innerHTML += `
-            <dialog class="notOk">
-              <h2>Desculpe, não encontramos uma conta com o endereço <b>${emailVerificar}</b>. Tente novamente ou ${<Link to='/sign'> crie uma nova conta</Link>} ".
-              </h2>
-              <input type='checkbox' id='btn-ok'>
-              <label for='btn-ok'>OK</label>
-            </dialog>
-          `;
-      document.querySelector("dialog input").addEventListener("change", (e) => {
-        if (e.target.checked) {
-          navigate("/login")
-        }
-      });
+  function alertLoginOk(isSuccess) {
+    if (!isSuccess) {
+      setShowDialog(true);
     } else {
-      // Navegar para a página de acesso após o login bem-sucedido
-      navigate("/acesso"); // Use navigate aqui, fora da função alertLoginOk
+      navigate("/acesso");
     }
   }
 
   return (
     <>
+      {showDialog && (
+        <dialog className="notOk" open>
+          <h2>
+            Desculpe, não encontramos uma conta com o endereço <b>{emailVerificar}</b>. Tente novamente ou <Link to='/sign'>crie uma nova conta</Link>.
+          </h2>
+          <button onClick={() => setShowDialog(false)}>OK</button>
+        </dialog>
+      )}
+
       <div className="containerLogin">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/7ca5b7c7-20aa-42a8-a278-f801b0d65fa1/539c1d05-ea60-4865-88c5-be28fa1ac8b4/BR-pt-20240326-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
-          alt=""
-        />
+        <img src="https://assets.nflxext.com/ffe/siteui/vlv3/7ca5b7c7-20aa-42a8-a278-f801b0d65fa1/539c1d05-ea60-4865-88c5-be28fa1ac8b4/BR-pt-20240326-popsignuptwoweeks-perspective_alpha_website_medium.jpg" alt="" />
         <div className="imgShadowLogin"></div>
         <Link className="linkRoutes" to={"/"}>
           <h1>DEVFLIX</h1>
@@ -114,7 +89,8 @@ function LoginPage() {
               name="emailEntrar"
               id="emailEntrar"
               placeholder="E-mail"
-              onChange={(elemento) => setEmailVerificar(elemento.target.value)}
+              value={emailVerificar}
+              onChange={(e) => setEmailVerificar(e.target.value)}
             />
             <input
               required
@@ -124,7 +100,8 @@ function LoginPage() {
               placeholder="Senha"
               minLength={4}
               maxLength={16}
-              onChange={(elemento) => setSenhaVerificar(elemento.target.value)}
+              value={senhaVerificar}
+              onChange={(e) => setSenhaVerificar(e.target.value)}
             />
             <input type="submit" value="Entrar" />
           </div>
@@ -133,9 +110,7 @@ function LoginPage() {
               <input type="checkbox" id="fotgetMe" />
               <label htmlFor="fotgetMe"> Lembre-se de mim</label>
             </div>
-            <a href="mailto:dsmathiasmarques@gmail.com?subject=Ei, Mathias! É sobre a Devflix...">
-              Precisa de ajuda?
-            </a>
+            <a href="mailto:dsmathiasmarques@gmail.com?subject=Ei, Mathias! É sobre a Devflix...">Precisa de ajuda?</a>
           </div>
           <div className="end-Div">
             <div>
@@ -145,7 +120,7 @@ function LoginPage() {
           </div>
         </form>
       </div>
-      <Footer classe="footerLogin"></Footer>
+      <Footer classe="footerLogin" />
     </>
   );
 }
