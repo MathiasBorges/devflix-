@@ -42,6 +42,12 @@ function MoviesPage() {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5pddc5hd9ZAeaMLQN_cLHw0ODLO64RxN-aw&s",
       video: "https://www.youtube.com/embed/LdOM0x0XDMo"
     },
+    {
+      id:6,
+      title:"All Gegagedigedagedago compilation 1-20",
+      image:"https://i.ytimg.com/vi/9s_nZFvzSkQ/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLALauc2BiaY9purDmHDifYiorj81g",
+      video:"https://www.youtube.com/watch?v=9s_nZFvzSkQ&pp=ygULbWVtZSBudWdnZXQ%3D"
+    },
   ]);
 
   const userName = localStorage.getItem("nome");
