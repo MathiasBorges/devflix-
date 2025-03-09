@@ -59,7 +59,7 @@ function MoviesPage() {
 
   function logOutButton() {
       localStorage.setItem("logado",null)    
-      navigate("/")
+      navigate("/login")
   }
 
   return (

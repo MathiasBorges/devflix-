@@ -37,20 +37,19 @@ export function EmailBox() {
         }
 
         setTimeout(() => {
-          navigate("/login");
+          navigate("/");
         }, 2500);
       } catch (error) {
         if (error.response && error.response.status === 404) {
           // Se o erro for 404, redireciona para a página inicial
           setTimeout(() => {
-            navigate("/sign");
+            navigate("/");
           }, 2500);
         } else {
           console.log("Erro ao fazer login:", error);
           setTimeout(() => {
             navigate("/sign");
           }, 2500);
-          
         }
       } finally {
         localStorage.setItem("emailEscolhido", email);
@@ -72,6 +71,7 @@ export function EmailBox() {
         </div>
         <form className="form-Home" onSubmit={fazerLogin} action="#">
           <input
+            style={{margin:"0 25px"}}
             type="email"
             name="email"
             placeholder="Email"
