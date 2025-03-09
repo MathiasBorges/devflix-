@@ -24,7 +24,7 @@ export function EmailBox() {
       try {
         const response = await axios.post(
           backendUrl,
-          { email: emailVerificar, senha: senhaVerificar },
+          JSON.stringify({ email }),
           { headers: { "Content-Type": "application/json" } }
         );
 
@@ -36,7 +36,12 @@ export function EmailBox() {
           localStorage.setItem(chave, valor);
         }
       } catch (error) {
-        console.log("Erro ao fazer login:", error);
+
+        if (error.response && error.response.status === 404) {
+            // Se o erro for 404, redireciona para a página inicial
+            location.href = "/";
+          }else console.log("Erro ao fazer login:", error);
+
       } finally {
         setTimeout(() => {
           navigate("/login");

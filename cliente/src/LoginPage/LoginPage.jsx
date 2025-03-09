@@ -53,7 +53,11 @@ function LoginPage() {
         }
       } catch (error) {
         alertLoginOk(false);
-        console.log("Erro ao fazer login:", error);
+        
+        if (error.response && error.response.status === 404) {
+            location.href = "/";
+          }else console.log("Erro ao fazer login:", error);
+
       } finally {
         localStorage.setItem("emailEscolhido", emailVerificar);
       }

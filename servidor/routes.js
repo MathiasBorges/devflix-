@@ -18,6 +18,10 @@ routes.post('/login', (req, res) => {
 });
 
 routes.post('/prelogin', (req, res) => {
+
+    if(res.status(400)){
+        location.href="/"
+    }
     const { email } = req.body;
 
     const usuario = usuarios.find(usuario => usuario.email === email);
@@ -25,13 +29,15 @@ routes.post('/prelogin', (req, res) => {
     if (usuario) {
         res.status(200).json(usuario);
     } else {
-        res.status(401).json({ mensagem: 'Credenciais inválidas' });
+        res.status(404).json({ mensagem: 'Usuário não encontrado' }); // Código HTTP 404 para não encontrado
     }
 });
 
+
+
 routes.post('/sign', (req, res) => {
     const { nome, email, senha } = req.body;
-    
+
     const usuario = usuarios.find(usuario => usuario.email === email);
 
     if (usuario) {
