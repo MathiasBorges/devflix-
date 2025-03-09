@@ -18,11 +18,14 @@ routes.post('/login', (req, res) => {
 });
 
 routes.post('/prelogin', (req, res) => {
+    console.log(req.body); // para ver o que está chegando
 
-    if(res.status(400)){
-        location.href="/"
-    }
+
     const { email } = req.body;
+    
+    if (!email) {
+        return res.status(400).json({ mensagem: "O campo 'email' é obrigatório." });
+    }
 
     const usuario = usuarios.find(usuario => usuario.email === email);
 
