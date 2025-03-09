@@ -3,7 +3,7 @@ import HomePage from "../src/HomePage/HomePage";
 import LoginPage from "../src/LoginPage/LoginPage";
 import SignPage from "../src/SignPage/SignPage";
 
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import {HashRouter as Router, Routes, Route} from "react-router-dom"
 
 function AppRoutes(){
     return(
