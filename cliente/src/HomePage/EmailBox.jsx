@@ -36,12 +36,13 @@ export function EmailBox() {
           localStorage.setItem(chave, valor);
         }
       } catch (error) {
-
         if (error.response && error.response.status === 404) {
-            // Se o erro for 404, redireciona para a página inicial
-             navigate("https://devflix-493y.onrender.com/");
-          }else console.log("Erro ao fazer login:", error);
-
+          // Se o erro for 404, redireciona para a página inicial
+          navigate("/");
+        } else {
+          console.log("Erro ao fazer login:", error);
+          navigate("/sign");
+        }
       } finally {
         setTimeout(() => {
           navigate("/login");

@@ -59,10 +59,11 @@ function LoginPage() {
         alertLoginOk(false);
 
         if (error.response && error.response.status === 404) {
-            navigate("https://devflix-493y.onrender.com/");
+            navigate("/login");
           }else console.log("Erro ao fazer login:", error);
 
       } finally {
+
         localStorage.setItem("emailEscolhido", emailVerificar);
       }
     }
@@ -83,7 +84,7 @@ function LoginPage() {
           `;
       document.querySelector("dialog input").addEventListener("change", (e) => {
         if (e.target.checked) {
-          navigate("https://devflix-493y.onrender.com/")
+          navigate("/login")
         }
       });
     } else {

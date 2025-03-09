@@ -53,7 +53,7 @@ function Form() {
 
       if (error.response && error.response.status === 404) {
         // Se o erro for 404, redireciona para a página inicial
-        navigate("https://devflix-493y.onrender.com/sign");
+        navigate("/sign");
       }else console.log("Erro ao fazer cadastro:", error);;
     }
 
@@ -74,7 +74,7 @@ function Form() {
           `;
       document.querySelector("dialog input").addEventListener("change", (e) => {
         if (e.target.checked) {
-          navigate("https://devflix-493y.onrender.com/sign")
+          navigate("/sign")
         }
       });
     } else {
@@ -86,7 +86,7 @@ function Form() {
 
       document.querySelector("dialog input").addEventListener("change", (e) => {
         if (e.target.checked) {
-          navigate("https://devflix-493y.onrender.com/login")
+          navigate("/login")
         }
       });
     }
