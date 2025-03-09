@@ -35,18 +35,20 @@ export function EmailBox() {
           const [chave, valor] = respostaArray[i];
           localStorage.setItem(chave, valor);
         }
-      } catch (error) {
-        if (error.response && error.response.status === 404) {
-          // Se o erro for 404, redireciona para a página inicial
-          navigate("/");
-        } else {
-          console.log("Erro ao fazer login:", error);
-          navigate("/sign");
-        }
-      } finally {
+
         setTimeout(() => {
           navigate("/login");
         }, 2500);
+      } catch (error) {
+        if (error.response && error.response.status === 404) {
+          // Se o erro for 404, redireciona para a página inicial
+          setTimeout(() => {
+            navigate("/sign");
+          }, 2500);
+        } else {
+          console.log("Erro ao fazer login:", error);
+        }
+      } finally {
         localStorage.setItem("emailEscolhido", email);
       }
     }

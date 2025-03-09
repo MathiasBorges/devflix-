@@ -76,7 +76,7 @@ function LoginPage() {
     if (isTrue !== true) {
       body.innerHTML += `
             <dialog class="notOk">
-              <h2>Desculpe, não encontramos uma conta com o endereço <b>${emailVerificar}</b>. Tente novamente ou <a href='/sign'>crie uma nova conta</a>.
+              <h2>Desculpe, não encontramos uma conta com o endereço <b>${emailVerificar}</b>. Tente novamente ou ${<Link to='/sign'> crie uma nova conta</Link>} ".
               </h2>
               <input type='checkbox' id='btn-ok'>
               <label for='btn-ok'>OK</label>

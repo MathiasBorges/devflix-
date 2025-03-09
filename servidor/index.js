@@ -9,7 +9,7 @@ const port=3000 || process.env.PORT
 
 const corsOptions = {
     //permitindo front
-    origin:'https://devflix-493y.onrender.com/' || "*",
+    origin: "*",
     credentials: true,
     optionsSuccessStatus: 200
   };
