@@ -57,6 +57,7 @@ function LoginPage() {
         }
       } catch (error) {
         alertLoginOk(false);
+        setSenhaVerificar("")
 
         if (error.response && error.response.status === 404) {
             navigate("/login");
