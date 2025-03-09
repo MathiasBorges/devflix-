@@ -37,7 +37,7 @@ export function EmailBox() {
         }
 
         setTimeout(() => {
-          navigate("/");
+          navigate("/login");
         }, 2500);
       } catch (error) {
         if (error.response && error.response.status === 404) {
@@ -81,9 +81,10 @@ export function EmailBox() {
           <input
             type="submit"
             value="Vamos lá!"
-            onClick={(elemento) =>
+            onClick={(elemento) =>{
               (elemento.target.style.animation =
                 "carregaBotao 2.5s linear alternate")
+              }
             }
           />
         </form>

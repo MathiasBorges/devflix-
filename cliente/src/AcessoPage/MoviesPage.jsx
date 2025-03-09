@@ -44,8 +44,8 @@ function MoviesPage() {
     },
     {
       id:6,
-      title:"All Gegagedigedagedago compilation 1-20",
-      image:"https://i.ytimg.com/vi/9s_nZFvzSkQ/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLALauc2BiaY9purDmHDifYiorj81g",
+      title:"The Nugget Movie",
+      image:"https://media.tenor.com/lgfiKV0zVAUAAAAM/daitroksgiphy-roblox-nugget.gif",
       video:"https://www.youtube.com/embed/9s_nZFvzSkQ"
     },
   ]);
