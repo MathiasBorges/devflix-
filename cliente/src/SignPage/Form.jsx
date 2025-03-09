@@ -99,7 +99,7 @@ function Form() {
                 Desculpe, mas já existe uma conta com o endereço <b>{emailCadastrar}</b>. 
                 Tente novamente ou <Link to="/login">Entre com uma conta</Link>.
               </h2>
-              <button onClick={() => setModal({ show: false })}>OK</button>
+              <button style={{color:"black"}} onClick={() => setModal({ show: false })}>OK</button>
             </>
           )}
         </dialog>

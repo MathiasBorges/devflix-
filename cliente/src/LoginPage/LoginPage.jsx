@@ -70,7 +70,7 @@ function LoginPage() {
           <h2>
             Desculpe, não encontramos uma conta com o endereço <b>{emailVerificar}</b>. Tente novamente ou <Link to='/sign'>crie uma nova conta</Link>.
           </h2>
-          <button onClick={() => setShowDialog(false)}>OK</button>
+          <button style={{color:"black"}} onClick={() => setShowDialog(false)}>OK</button>
         </dialog>
       )}
 
