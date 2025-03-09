@@ -47,6 +47,10 @@ export function EmailBox() {
           }, 2500);
         } else {
           console.log("Erro ao fazer login:", error);
+          setTimeout(() => {
+            navigate("/sign");
+          }, 2500);
+          
         }
       } finally {
         localStorage.setItem("emailEscolhido", email);
