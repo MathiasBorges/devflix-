@@ -1,7 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Form() {
+  const navigate=useNavigate()
+
   function lidarClique() {
     let mainSign = document.querySelector(".mainSign");
     mainSign.style.animation = "noShowMainForm 1s ease-in forwards";
@@ -25,7 +28,7 @@ function Form() {
 
     try {
       const response = await axios.post(
-        backendUrl,
+        "https://devflix-api-gd6r.onrender.com/sign",
         { nome: nomeCadastrar, email: emailCadastrar, senha: senhaCadastrar }, // Corretamente passando as variáveis
         { headers: { "Content-Type": "application/json" } }
       );
@@ -46,8 +49,12 @@ function Form() {
 
       alertLoginOk(true);
     } catch (error) {
-      console.log("Erro ao fazer cadastro:", error);
       alertLoginOk(false);
+
+      if (error.response && error.response.status === 404) {
+        // Se o erro for 404, redireciona para a página inicial
+        navigate("https://devflix-493y.onrender.com/sign");
+      }else console.log("Erro ao fazer cadastro:", error);;
     }
 
     return nomeCadastrar, emailCadastrar, senhaCadastrar;
@@ -67,7 +74,7 @@ function Form() {
           `;
       document.querySelector("dialog input").addEventListener("change", (e) => {
         if (e.target.checked) {
-          location.reload();
+          navigate("https://devflix-493y.onrender.com/sign")
         }
       });
     } else {
@@ -79,7 +86,7 @@ function Form() {
 
       document.querySelector("dialog input").addEventListener("change", (e) => {
         if (e.target.checked) {
-          window.location.assign("/login");
+          navigate("https://devflix-493y.onrender.com/login")
         }
       });
     }

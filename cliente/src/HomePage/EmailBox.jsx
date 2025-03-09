@@ -23,7 +23,7 @@ export function EmailBox() {
 
       try {
         const response = await axios.post(
-          backendUrl,
+          "https://devflix-api-gd6r.onrender.com/prelogin",
           JSON.stringify({ email }),
           { headers: { "Content-Type": "application/json" } }
         );
@@ -39,7 +39,7 @@ export function EmailBox() {
 
         if (error.response && error.response.status === 404) {
             // Se o erro for 404, redireciona para a página inicial
-            location.href = "/";
+             navigate("https://devflix-493y.onrender.com/");
           }else console.log("Erro ao fazer login:", error);
 
       } finally {

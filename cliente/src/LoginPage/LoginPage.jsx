@@ -15,6 +15,10 @@ function LoginPage() {
   const [emailVerificar, setEmailVerificar] = useState(
     localStorage.getItem("emailEscolhido")
   );
+  useEffect(() => {
+    setEmailVerificar(localStorage.getItem("emailEscolhido"));
+  }, []);
+
   const [senhaVerificar, setSenhaVerificar] = useState("");
 
   async function verificarLogin(e) {
@@ -34,7 +38,7 @@ function LoginPage() {
 
       try {
         const response = await axios.post(
-          backendUrl,
+          "https://devflix-api-gd6r.onrender.com/login",
           { email: emailVerificar, senha: senhaVerificar },
           { headers: { "Content-Type": "application/json" } }
         );
@@ -53,9 +57,9 @@ function LoginPage() {
         }
       } catch (error) {
         alertLoginOk(false);
-        
+
         if (error.response && error.response.status === 404) {
-            location.href = "/";
+            navigate("https://devflix-493y.onrender.com/");
           }else console.log("Erro ao fazer login:", error);
 
       } finally {
@@ -79,7 +83,7 @@ function LoginPage() {
           `;
       document.querySelector("dialog input").addEventListener("change", (e) => {
         if (e.target.checked) {
-          location.reload();
+          navigate("https://devflix-493y.onrender.com/")
         }
       });
     } else {
