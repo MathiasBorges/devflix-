@@ -91,7 +91,7 @@ function Form() {
           {modal.success ? (
             <>
               <h2>Bem-vindo <b>{nomeCadastrar}</b>!</h2>
-              <button onClick={() => navigate("/login")}>OK</button>
+              <button style={{padding:5,color:"black"}} onClick={() => navigate("/login")}>OK</button>
             </>
           ) : (
             <>
@@ -99,7 +99,7 @@ function Form() {
                 Desculpe, mas já existe uma conta com o endereço <b>{emailCadastrar}</b>. 
                 Tente novamente ou <Link to="/login">Entre com uma conta</Link>.
               </h2>
-              <button style={{color:"black"}} onClick={() => setModal({ show: false })}>OK</button>
+              <button style={{padding:5,color:"black"}} onClick={() => setModal({ show: false })}>OK</button>
             </>
           )}
         </dialog>
